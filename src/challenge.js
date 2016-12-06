@@ -1,12 +1,13 @@
 class Challenge {
 
-  getFilteredList(array) {
-    if (array == null || array.length == 0) {
+  getFilteredList(array_string) {
+    if (array_string == null || array_string.length == 0) {
       return "please enter an array as comma separated string, e.g., 'element','element'";
     }
-    if (array.length == 1) {
-      return array;
+    if (array_string.length == 1) {
+      return array_string;
     }
+    var array = array_string.split(',');
 
     var result = [];
     var used = {};
@@ -20,21 +21,22 @@ class Challenge {
     return result;
   }
 
-  getEmail(rand) {
-    return 'a' + rand + '@a.com';
-  }
+  isEven(n) { return n % 2 == 0; }
+  getEmail(rand) { return 'a' + rand + '@a.com'; }
   createList(numberOfUniques) {
     if (numberOfUniques == 0) { return []; }
-    if (numberOfUniques == 1) { return [this.getEmail(0)]; }
+    if (!this.isEven(numberOfUniques)) { return ['please input even number of unique elements']; }
 
+    Math.seedrandom("hello");
     var result = [];
     var used = {};
 
     var i = 0;
     var dupCount = 0;
     var fiftyPct = parseInt(numberOfUniques/2);
+    var iterations = parseInt(numberOfUniques * 1.5);
 
-    while (i < numberOfUniques * 1.5) {
+    while (i < iterations) {
       var rand = Math.floor(Math.random() * numberOfUniques + 1);
       if (!(rand in used)) {
         result.push(this.getEmail(rand));
@@ -47,6 +49,6 @@ class Challenge {
         dupCount++;
       }
     }
-    return result;
+    return result.toString();
   }
 }
