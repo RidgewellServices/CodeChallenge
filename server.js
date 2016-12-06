@@ -1,5 +1,9 @@
-var http = require('http');
-http.createServer(function (req, res) {
- res.writeHead(200, {'Content-Type': 'text/plain'});
- res.end('it is running\n');
-}).listen(process.env.PORT || 5000);
+var fs = require('fs');
+var express = require('express');
+var app = express();
+app.use(express.static("."));
+app.get('/', function(req, res){
+    res.sendfile('./index.html');
+});app.listen(5000, function(){
+  console.log("listening on 5000");
+});

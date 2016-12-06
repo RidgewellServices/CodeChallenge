@@ -9,9 +9,9 @@
 <body>
   <script src="src/challenge.js"></script>
   <h1>Chef Steps Challenge</h1>
-  <form id="frm1" action="form_action.asp">
+  <form id="frm1" onsubmit="return run()">
     Input Array<input type="text" name="input_array"></br>
-    <button onclick="return run()">Submit</button>
+    <button>Submit</button>
   </form>
   <h4 id="result"></h4>
   <script>
