@@ -2,12 +2,12 @@ class Challenge {
 
   getFilteredList(array_string) {
     if (array_string == null || array_string.length == 0) {
-      return "please enter an array as comma separated string, e.g., 'element','element'";
+      return "please enter an array as comma separated string, e.g., a@a.a, b@b.b, a@a.a";
     }
     if (array_string.length == 1) {
       return array_string;
     }
-    var array = array_string.split(',');
+    var array = array_string.split(',').map(function(item) { return item.trim(); });
 
     var result = [];
     var used = {};

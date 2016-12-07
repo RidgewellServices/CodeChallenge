@@ -4,24 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Chef Steps</title>
-  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="w3.css">
 </head>
 <body>
-  <script src="src/challenge.js"></script>
-  <h1>Chef Steps Challenge</h1>
-  <form id="frm1" onsubmit="return run()">
-    Input Array<input type="text" name="input_array"></br>
-    <button>Submit</button>
-  </form>
-  <h4 id="result"></h4>
-  <script>
-    function run() {
-      var challenge = new Challenge();
-      var element = document.getElementById("frm1");
-      var text = element[0].value;
-      document.getElementById("result").innerHTML = "Result = " + challenge.getFilteredList(text);
-      return false;
-    }
-  </script>
+  <div class="body-card">
+    <script src="src/challenge.js"></script>
+    <h1>Chef Steps Challenge</h1>
+    <form id="frm1" onsubmit="return run()">
+      <h4>Input Array</h4>
+      <input type="text" name="input_array"></br></br>
+      <button>Submit</button>
+    </form>
+    <h4>Result</h4>
+    <div class="large-container">
+      <h4 id="result" name="result_array"></h4>
+    </div>
+    <script>
+      function run() {
+        var challenge = new Challenge();
+        var element = document.getElementById("frm1");
+        var text = element[0].value;
+        document.getElementById("result").innerHTML = challenge.getFilteredList(text);
+        return false;
+      }
+    </script>
+  </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 QUnit.test( "test getFilteredList with empty array", function( assert ) {
   var test_obj = new Challenge();
   var result = test_obj.getFilteredList();
-  assert.ok( result == "please enter an array as comma separated string, e.g., 'element','element'", "Passed!" );
+  assert.ok( result == "please enter an array as comma separated string, e.g., a@a.a, b@b.b, a@a.a", "Passed!" );
 });
 
 QUnit.test( "test getFilteredList with 1 element array", function( assert ) {
@@ -38,6 +38,13 @@ QUnit.test( "test getFilteredList with 15 element generated array", function( as
   var result = test_obj.getFilteredList(list);
   var expected = "a6@a.com,a5@a.com,a8@a.com,a10@a.com,a7@a.com,a3@a.com,a1@a.com,a9@a.com,a4@a.com,a2@a.com";
   assert.ok( result == expected, "Passed!" );
+});
+
+QUnit.test( "test getFilteredList with 3 element array with whitespace", function( assert ) {
+  var test_obj = new Challenge();
+  var input = "a, b, a";
+  var result = test_obj.getFilteredList(input);
+  assert.ok( result == "a,b", "Passed!" );
 });
 
 
